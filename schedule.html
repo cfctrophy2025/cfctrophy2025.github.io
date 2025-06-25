@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFC Trophy 2025 - Official Event Schedule</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border-radius: 15px 15px 0 0;
+            margin: -20px -20px 30px -20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .venue-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2a5298;
+        }
+
+        .venue-info h2 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .day-section {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .day-header h2 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+
+        .day-header .date {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .events-container {
+            padding: 20px;
+        }
+
+        .event-block {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .event-block:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .event-time {
+            font-weight: bold;
+            color: #2a5298;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .event-time::before {
+            content: '🕐';
+            margin-right: 8px;
+        }
+
+        .event-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .event-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .event-description ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .event-description li {
+            margin-bottom: 5px;
+        }
+
+        .special-event {
+            border-left-color: #ff6b6b;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+        }
+
+        .match-event {
+            border-left-color: #4ecdc4;
+            background: linear-gradient(135deg, #f0fffe 0%, #e0f7f5 100%);
+        }
+
+        .award-event {
+            border-left-color: #ffd93d;
+            background: linear-gradient(135deg, #fffbf0 0%, #fff4d6 100%);
+        }
+
+        .cultural-event {
+            border-left-color: #a8e6cf;
+            background: linear-gradient(135deg, #f8fff8 0%, #e8f5e8 100%);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #2a5298;
+            color: white;
+            border-radius: 0 0 15px 15px;
+            margin: 30px -20px -20px -20px;
+        }
+
+        .footer h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .logo-container {
+                position: relative;
+                margin: 0 auto 20px;
+                left: auto;
+                top: auto;
+            }
+            
+            .event-block {
+                padding: 15px;
+            }
+        }
+
+        .icon {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="FootballClubSportsBadgeLogo(11)(1)(1).png" alt="Colachel Football Club Logo" class="logo">
+            </div>
+            <h1>⚽ CFC Trophy 2025</h1>
+            <div class="subtitle">Official Event Schedule</div>
+        </div>
+
+        <div class="venue-info">
+            <h2>📍 Event Details</h2>
+            <p><strong>Venue:</strong> CFC Ground, Colachel</p>
+            <p><strong>Dates:</strong> Saturday, June 28 & Sunday, June 29, 2025</p>
+        </div>
+
+        <!-- Day 1 -->
+        <div class="day-section">
+            <div class="day-header">
+                <h2>DAY 1</h2>
+                <div class="date">Saturday, June 28, 2025</div>
+                <div class="date">8:00 AM – 11:00 PM</div>
+            </div>
+            <div class="events-container">
+                <div class="event-block special-event">
+                    <div class="event-time">8:00 AM - 9:00 AM</div>
+                    <div class="event-title">🎉 Opening Ceremony</div>
+                    <div class="event-description">
+                        <ul>
+                            <li><strong>8:00 AM</strong> - Team Arrival & First Match Preparations</li>
+                            <li><strong>8:30 AM</strong> - Welcome Speech by <strong>Sopna</strong>, Legal Counsel – Colachel FC</li>
+                            <li>Club Flag Hoisting by <strong>Rev. Fr. Antony Jegan Aswin</strong>, Colachel Community President & Patron of CFC</li>
+                            <li>National Flag Hoisting by <strong>Chief Guest</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="event-block award-event">
+                    <div class="event-time">9:00 AM</div>
+                    <div class="event-title">🏅 Guest Honoring Ceremony</div>
+                    <div class="event-description">
+                        Welcoming and honoring distinguished guests and dignitaries
+                    </div>
+                </div>
+
+                <div class="event-block match-event">
+                    <div class="event-time">10:00 AM - 5:00 PM</div>
+                    <div class="event-title">⚽ League Matches</div>
+                    <div class="event-description">
+                        Group stage fixtures for all registered teams
+                    </div>
+                </div>
+
+                <div class="event-block award-event">
+                    <div class="event-time">5:00 PM - 6:00 PM</div>
+                    <div class="event-title">🏆 Sports Development Awards</div>
+                    <div class="event-description">
+                        Honoring individuals & organizations promoting football and sports culture in the coastal region
+                    </div>
+                </div>
+
+                <div class="event-block special-event">
+                    <div class="event-time">6:00 PM - 7:00 PM</div>
+                    <div class="event-title">🌟 Special Guests Honoring</div>
+                    <div class="event-description">
+                        Felicitation of distinguished visitors, officials, and dignitaries
+                    </div>
+                </div>
+
+                <div class="event-block award-event">
+                    <div class="event-time">7:00 PM - 8:00 PM</div>
+                    <div class="event-title">🥇 Achievements Awards</div>
+                    <div class="event-description">
+                        Celebrating players from our region who represented:
+                        <ul>
+                            <li>Indian Super League (ISL)</li>
+                            <li>I-League</li>
+                            <li>Santosh Trophy</li>
+                            <li>Nationals & State Teams (2024–25 Season)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="event-block match-event">
+                    <div class="event-time">8:00 PM - 11:00 PM</div>
+                    <div class="event-title">⚽ Continued League Matches</div>
+                    <div class="event-description">
+                        Evening league fixtures continue
+                    </div>
+                </div>
+
+                <div class="event-block">
+                    <div class="event-time">11:00 PM</div>
+                    <div class="event-title">📢 Day 1 Wrap-up & Announcements</div>
+                    <div class="event-description">
+                        <ul>
+                            <li>League results</li>
+                            <li>Fixtures for Day 2</li>
+                            <li>General instructions for teams</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-section">
+            <div class="day-header">
+                <h2>DAY 2</h2>
+                <div class="date">Sunday, June 29, 2025</div>
+                <div class="date">10:00 AM – 11:00 PM</div>
+            </div>
+            <div class="events-container">
+                <div class="event-block match-event">
+                    <div class="event-time">10:00 AM</div>
+                    <div class="event-title">⚽ Women's Matches & Pre-Quarter Matches Begin</div>
+                    <div class="event-description">
+                        Start of knockout stage and women's tournament
+                    </div>
+                </div>
+
+                <div class="event-block special-event">
+                    <div class="event-time">1:00 PM - 2:30 PM</div>
+                    <div class="event-title">🎯 Exhibition Matches</div>
+                    <div class="event-description">
+                        <ul>
+                            <li><strong>1:00 PM</strong> - Under-15 Girls Match</li>
+                            <li><strong>1:45 PM</strong> - Under-12 Boys Match</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="event-block match-event">
+                    <div class="event-time">2:30 PM - 5:00 PM</div>
+                    <div class="event-title">⚔️ Quarterfinal Matches</div>
+                    <div class="event-description">
+                        Top teams battle it out for semi-final spots
+                    </div>
+                </div>
+
+                <div class="event-block special-event">
+                    <div class="event-time">6:00 PM - 7:00 PM</div>
+                    <div class="event-title">🌟 Special Guests Honoring</div>
+                    <div class="event-description">
+                        Appreciation of VIP attendees and supporters
+                    </div>
+                </div>
+
+                <div class="event-block award-event">
+                    <div class="event-time">7:00 PM - 8:00 PM</div>
+                    <div class="event-title">🧒 Rising Stars Awards</div>
+                    <div class="event-description">
+                        Recognizing young footballers from our community achieving excellence
+                    </div>
+                </div>
+
+                <div class="event-block cultural-event">
+                    <div class="event-time">8:00 PM - 8:10 PM</div>
+                    <div class="event-title">💃 Cultural Dance Performance</div>
+                    <div class="event-description">
+                        Performed by <strong>S.S.S Nadanakaintram by Serjia</strong>, Colachel
+                    </div>
+                </div>
+
+                <div class="event-block match-event">
+                    <div class="event-time">9:00 PM - 10:30 PM</div>
+                    <div class="event-title">🏆 Semifinals & Grand Finale</div>
+                    <div class="event-description">
+                        The most awaited climax of CFC Trophy 2025
+                    </div>
+                </div>
+
+                <div class="event-block award-event">
+                    <div class="event-time">10:30 PM</div>
+                    <div class="event-title">🎖️ Prize Distribution Ceremony</div>
+                    <div class="event-description">
+                        Hosted by <strong>Sopna</strong>, Legal Counsel – Colachel FC
+                        <ul>
+                            <li>Winners & Runners-Up</li>
+                            <li>Golden Boot, Best Player, Best Goalkeeper</li>
+                            <li>Fair Play & Team Awards</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="event-block special-event">
+                    <div class="event-time">11:00 PM</div>
+                    <div class="event-title">🙏 Vote of Thanks</div>
+                    <div class="event-description">
+                        By <strong>Sahaya Rex</strong>, Manager – Colachel FC<br>
+                        Appreciation to players, teams, guests, volunteers & sponsors
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3>Colachel Football Club</h3>
+            <p>"Building Future Through Football"</p>
+            <p>Rise As One! ⚽</p>
+        </div>
+    </div>
+</body>
+</html>
+
